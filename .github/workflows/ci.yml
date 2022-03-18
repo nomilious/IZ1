@@ -5,21 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install env
-        run: sudo apt update && sudo apt install cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev lcov  libc6-dbg
-        run: pip install cpplint 
+        run: sudo apt update && sudo apt install cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev lcov  libc6-dbg && pip install cpplint 
       - name: check
-        run: make check
-        run: make format
+        run: make check && make format
 
       - name: build_run_fsanitizer
-        run: make build_fsanitizer
-        run: make test
+        run: make build_fsanitizer && make test
 
       - name: build_run_valgrind
-        run: make rm_build
-        run: make build
-        run: make test_valgrind
+        run: make rm_build && make build && make test_valgrind
       - name: test_coverage
-        run: make test
-        run: make test_coverage
+        run: make test && make test_coverage
       
