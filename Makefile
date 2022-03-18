@@ -17,7 +17,7 @@ test:
 	sudo ./build/tests/test_fib
 
 test_valgrind:
-	sudo valgrind ./build/tests/test_fib
+	sudo valgrind --tool=memcheck --leak-check=yes ./build/tests/test_fib
 
 rm_build:
 	rm -r build
