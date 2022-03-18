@@ -7,9 +7,6 @@ format:
 build:
 	cmake -Dfsanitizer=OFF -S . -B build && scan-build cmake --build build
 
-build_test:
-	cmake -Dfsanitizer=OFF -S . -B build && cmake --build build
-
 build_fsanitizer:
 	cmake -Dfsanitizer=ON -S . -B build && scan-build cmake --build build
 
@@ -25,4 +22,4 @@ rm_build:
 test_coverage:
 	cd build && lcov -t "tests/test_fib" -o coverage.info -c -d lib/ && genhtml -o report coverage.info
 
-a:	build_fsanitizer test rm_build build test_valgrind rm_build build test test_coverage
+a:	build_fsanitizer test rm_build build test_valgrind test test_coverage
