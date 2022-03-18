@@ -11,10 +11,10 @@ jobs:
         run: sudo apt update && sudo apt install cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev lcov  libc6-dbg && pip install cpplint 
 
       - name: check
-        run: bash linters/run.sh && make format
+        run: make check && make format
 
       - name: build_run_fsanitizer
-        run: make build_fsanitizer && make clang-format -i lib/*.c main.c
+        run: make build_fsanitizer && make test
 
       - name: build_run_valgrind
         run: make rm_build && make build && make test_valgrind

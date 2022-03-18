@@ -1,5 +1,5 @@
 check:
-	sudo ./linters/run.sh
+	bash linters/run.sh
 
 format:
 	clang-format -i lib/*.c main.c
