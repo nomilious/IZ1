@@ -20,10 +20,10 @@ jobs:
         run: make rm_build && make build && make test_valgrind
 
       - name: test_coverage
-        run: make test && make test_coverage && ls build/report/
+        run: make test && make test_coverage
 
       - name: save artifact
         uses: actions/upload-artifact@v3
         with:
           name: report
-          path: buid/report/
+          path: build/report/
