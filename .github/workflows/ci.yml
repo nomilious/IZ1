@@ -5,7 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt update
-      - run: sudo apt install -y cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev   lcov  cpplint  libc6-dbg 
+      - run: sudo apt install -y cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev   lcov  libc6-dbg
+      - run: pip install cpplint 
       - run: make check
       - run: make format
 
