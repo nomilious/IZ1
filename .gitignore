@@ -1,0 +1,6 @@
+# ignore all logs
+*.log
+# ignore build 
+build/*
+# ignore vscode settings
+.vscode/*

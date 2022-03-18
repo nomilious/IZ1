@@ -1,0 +1,38 @@
+on: push
+
+jobs:
+  install_all:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt install -y cppcheck clang-tidy  clang-tools python3-pip libc6-dbg cmake libgtest-dev lcov 
+      - run: pip install cpplint
+
+  check:
+    runs-on: ubuntu-latest
+    needs: [install_all]
+    steps:
+      - run: make check
+      - run: make format
+
+  build_run_fsanitizer:
+    runs-on: ubuntu-latest
+    needs: [check]
+    steps:
+    - run: make build_fsanitizer
+    - run: make test
+
+  build_run_valgrind:
+    runs-on: ubuntu-latest
+    needs: [build_run_fsanitizer]
+    steps:
+      - run: make rm_build
+      - run: make build
+      - run: make test_valgrind
+  
+  test_coverage:
+    runs-on: ubuntu-latest
+    needs: [build_run_valgrind]
+    steps:
+      - run: make test
+      - run: make test_coverage
+      
