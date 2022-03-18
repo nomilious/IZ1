@@ -1,11 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(libb)
+project(fib_lib)
 
-option(fsanitizer "Run with fnsanitizerr" OFF)
-if(!fsanitizer)
-    set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-fprofile-arcs -ftest-coverage -fPIC -O0")
-endif()
-unset(fsanitizer CACHE)
+set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-fprofile-arcs -ftest-coverage -fPIC -O0")
 
 file(GLOB SOURCES *.c)
 file(GLOB INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
