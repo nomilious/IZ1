@@ -11,10 +11,10 @@ build_fsanitizer:
 	cmake -Dfsanitizer=ON -S . -B build && scan-build cmake --build build
 
 test:
-	cd build && ./tests/my_test
+	cd build && bash tests/my_test
 
 test_valgrind:
-	cd build && valgrind ./tests/my_test
+	cd build && valgrind bash tests/my_test
 
 rm_build:
 	rm -r build
