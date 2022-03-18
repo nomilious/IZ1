@@ -13,8 +13,7 @@ jobs:
       - name: check
         run: make check && make format
 
-      - name: build_run_fsanitizer
-        run: make build_fsanitizer && make test
+  
 
       - name: build_run_valgrind
         run: make rm_build && make build && make test_valgrind
