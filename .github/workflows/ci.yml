@@ -1,6 +1,5 @@
 on: push
-container:
-  options: --use-root
+
 jobs:
   Build_and_check:
     runs-on: ubuntu-latest
