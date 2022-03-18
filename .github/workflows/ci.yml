@@ -11,7 +11,7 @@ jobs:
         run: sudo apt update && sudo apt install cppcheck clang-tidy  clang-tools  python3  python3-pip  make libgtest-dev lcov  libc6-dbg && pip install cpplint 
 
       - name: check
-        run: make check  && make format
+        run: ls linters && make check  && make format
 
       - name: build_run_fsanitizer
         run: make build_fsanitizer && make clang-format -i lib/*.c main.c
