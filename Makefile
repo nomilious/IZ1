@@ -11,13 +11,13 @@ build_fsanitizer:
 	cmake -Dfsanitizer=ON -S . -B build && scan-build cmake --build build
 
 test:
-	sudo bash build/tests/my_test
+	sudo ./build/tests/my_test
 
 test_valgrind:
-	sudo valgrind bash build/tests/my_test
+	sudo valgrind ./build/tests/my_test
 
 rm_build:
 	rm -r build
 
 test_coverage:
-	lcov -t "tests/tests_fib" -o coverage.info -c -d fib_lib/ && genhtml -o report coverage.info
+	lcov -t "tests/my_test" -o coverage.info -c -d lib/ && genhtml -o report coverage.info
