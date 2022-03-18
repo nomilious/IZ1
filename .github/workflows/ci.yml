@@ -4,7 +4,15 @@ jobs:
   install_all:
     runs-on: ubuntu-latest
     steps:
-      - run: apt install -y cppcheck clang-tidy  clang-tools python3 python3-pip libc6-dbg cmake libgtest-dev lcov 
+      - run: sudo apt install -y cppcheck  
+      - run: sudo apt install -y clang-tidy 
+      - run: sudo apt install -y clang-tools 
+      - run: sudo apt install -y python3  
+      - run: sudo apt install -y python3-pip  
+      - run: sudo apt install -y libc6-dbg 
+      - run: sudo apt install -y cmake  
+      - run: sudo apt install -y libgtest-dev 
+      - run: sudo apt install -y lcov 
       - run: pip install cpplint
 
   check:
