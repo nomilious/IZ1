@@ -26,4 +26,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: report
-          path: ./buid/report/
+          path: buid/report/
