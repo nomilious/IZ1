@@ -20,4 +20,4 @@ jobs:
         run: make rm_build && make build && make test_valgrind
 
       - name: test_coverage
-        run: make rm_build && make build && make test && tree && make test_coverage
+        run: make rm_build && make build_test && make test && tree && make test_coverage

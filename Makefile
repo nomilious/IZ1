@@ -7,6 +7,9 @@ format:
 build:
 	cmake -S . -B build && scan-build cmake --build build
 
+build_test:
+	cmake -S . -B build && cmake --build build
+
 build_fsanitizer:
 	cmake -Dfsanitizer=ON -S . -B build && scan-build cmake --build build
 

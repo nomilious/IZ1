@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(exec)
+project(fib)
 
 add_subdirectory(lib)
 
@@ -14,7 +14,7 @@ endif(fsanitizer)
 unset(fsanitizer CACHE)
 
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${LIB_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${LIB_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${FIB_LIB_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${FIB_LIB_LIBRARIES})
 
 add_subdirectory(tests)
