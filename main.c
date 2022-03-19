@@ -1,5 +1,7 @@
 #include "header.h"
-
+#include "init.h"
+#include "read.h"
+#include "tools.h"
 int main() {
     int capacity = 4;
     int len = 0;

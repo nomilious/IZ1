@@ -1,6 +1,9 @@
 #include <gtest/gtest.h>
 extern "C" {
 #include "header.h"
+#include "init.h"
+#include "read.h"
+#include "tools.h"
 }
 TEST(insert_date, Test_date) {
     //                      1                           2

@@ -1,4 +1,7 @@
-#include "header.h"
+#include "read.h"
+
+#include "init.h"
+#include "tools.h"
 
 Post* create_post(FILE* f) {
     char* title = NULL;
@@ -70,6 +73,7 @@ Post* create_post(FILE* f) {
     }
     return post;
 }
+
 struct tm* insert_date(FILE* f) {
     struct tm* date = (struct tm*) calloc(1, sizeof(struct tm));
     int d = -1, m = -1, y = -1;
@@ -89,6 +93,7 @@ struct tm* insert_date(FILE* f) {
     date->tm_yday = date->tm_wday = date->tm_sec = date->tm_min = date->tm_isdst = date->tm_hour = 0;
     return date;
 }
+
 Comm* insert_comm(Comm* cur_comm, struct tm* date, FILE* f) {
     int n = 100;
 
@@ -113,6 +118,7 @@ Comm* insert_comm(Comm* cur_comm, struct tm* date, FILE* f) {
     }
     return cur_comm;
 }
+
 char* insert_text(FILE* f, bool No_additionalLF) {
     int capacity = STD_TXT_L;
     char* text = NULL;
